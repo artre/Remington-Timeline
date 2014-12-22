@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+       <!--  <script src="js/vendor/modernizr-2.6.2.min.js"></script> -->
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
+		<script src="js/jquery.scrollmagic.min.js"></script>
+		<script src="js/jquery.scrollmagic.debug.js"></script>
+        
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+		<div class="container">
+			<script>
+				var controller;
+				$(document).ready(function($) {
+					// init controller
+					controller = new ScrollMagic();
+				});
+			</script>
+			<div class="s1 scene">
+				<img class="usa-flag" src="images/scene-1/usa-flag.png">
+				<img class="rem-logo" src="images/scene-1/Remington-Outdoor-Logo.png">
+				<img class="years-200" src="images/scene-1/years-200.png">
+				<img class="army" src="images/scene-1/painting-army.png">
+				
+				<div class="arrow-down">
+					<div class="arrow-container">
+						<div class="arrow-rect"></div>
+						<div class="arrow-tri"></div>
+						<span class="arrow-words">SCROLL<br>DOWN</span>
+					</div>
+				</div>
+			</div><!-- .s1 end -->
+			<script>
+				$(document).ready(function($) {
+					var windowHeight = $(window).height();
+					var s2MarginTop = ($('.army').offset().top + $(".army").height() ) - windowHeight;
+					
+					// SCENE 1 =============================
+					// Duration ignored / replaced by scene duration now
+					var tween1 = TweenMax.to('.army', 0.5, {
+					    opacity: 0
+					});
+					
+					var scene1 = new ScrollScene({
+					    triggerElement: '.s2',
+					    duration: windowHeight, /* How many pixels to scroll / animate */
+					    offset: s2MarginTop
+					})
+					.setTween(tween1)
+					.addTo(controller);
+					
+					scene1.triggerHook("onEnter");
+				
+					
+					
+					
+					
+
+					// SCENE 2 ==============================
+					$(".s2").css("top", s2MarginTop);
+
+					// build scene
+					var scene2 = new ScrollScene({
+						triggerElement: ".army",
+						duration: windowHeight * 3,
+						offset: $(".army").height()
+						})
+						.setPin(".s2").addTo(controller);
+					
+					// Trigger animation when trigger object leaves the page	
+					scene2.triggerHook("onLeave");
+					// show indicators (requires debug extension)
+					scene2.addIndicators();
+					
+			
+				});
+			</script>
+			
+			<div class="s2 scene">
+				<div class="s2-back"></div>
+				<div class="s2-content-wrap">
+					<div class="left-green-bar">
+						<img class="founder-photo" src="images/scene-2/Eliphalet_Remington.png">
+						<div class="founder-info">
+							<span>Eliphalet Remington II</span>
+							<span>Founder</span>
+							<span>1793-1861</span>
+						</div>
+					</div>
+					<div class="in-the-woods">
+						<div class="s2-story-wrap">
+							<div class="s2-year"></div>
+							<div class="cutedge-box">
+								<div class="cutedge-right-angle"></div>
+								<div class="cutedge-top"></div>
+								<div class="cutedge-body">
+									<dvi class="cutage-headline clearfix">
+										<h1>The Story Goes...</h1>
+									</dvi>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequa</p>
+								</div>
+								<div class="cutedge-left-angle"></div>
+								<div class="cutedge-bottom"></div>
+							</div>
+						</div>
+					</div>
+				</div><!-- .s2-content-wrap end -->
+			</div><!-- .s2 end -->
+			<div class="back-fill"></div>
+		</div>
+		<script src="js/main.js"></script>
+       
+    </body>
+</html>
