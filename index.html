@@ -20,7 +20,7 @@
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
 		<script src="js/jquery.scrollmagic.min.js"></script>
 		<script src="js/jquery.scrollmagic.debug.js"></script>
-        
+        <script src="js/main.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -50,10 +50,15 @@
 			</div><!-- .s1 end -->
 			<script>
 				$(document).ready(function($) {
-					var windowHeight = $(window).height();
+					var windowHeight = $(window).innerHeight();
 					var s2MarginTop = ($('.army').offset().top + $(".army").height() ) - windowHeight;
+					$(window).on("resize", function () {
+						windowHeight = $(window).innerHeight();
+					});	
+					
 					
 					// SCENE 1 =============================
+					
 					// Duration ignored / replaced by scene duration now
 					var tween1 = TweenMax.to('.army', 0.5, {
 					    opacity: 0
@@ -62,34 +67,97 @@
 					var scene1 = new ScrollScene({
 					    triggerElement: '.s2',
 					    duration: windowHeight, /* How many pixels to scroll / animate */
-					    offset: s2MarginTop
+					    offset: s2MarginTop,
+					    triggerHook: "onEnter"
 					})
 					.setTween(tween1)
 					.addTo(controller);
-					
-					scene1.triggerHook("onEnter");
-				
-					
-					
-					
-					
 
+					
+					
 					// SCENE 2 ==============================
+					
 					$(".s2").css("top", s2MarginTop);
 
 					// build scene
-					var scene2 = new ScrollScene({
+					new ScrollScene({
 						triggerElement: ".army",
-						duration: windowHeight * 3,
-						offset: $(".army").height()
+						duration: windowHeight * 9,
+						offset: $(".army").height(),
+						triggerHook: "onLeave"
 						})
-						.setPin(".s2").addTo(controller);
+						.setPin(".s2").addTo(controller).addIndicators();
 					
-					// Trigger animation when trigger object leaves the page	
-					scene2.triggerHook("onLeave");
-					// show indicators (requires debug extension)
-					scene2.addIndicators();
+					// Left Green Bar ****
+					var tween2_1 = TweenMax.from('.left-green-bar', 1, {
+					    opacity: 0.8,
+					    left: "-40%",
+					    ease: Linear.easeIn
+					});
+					new ScrollScene({
+						triggerElement: ".army",
+						offset: windowHeight * 2,
+						triggerHook: "onEnter"
+					})
+					.setTween(tween2_1).addTo(controller);
 					
+					// In The Woods ****
+					var tween2_3 = TweenMax.from('.in-the-woods', 1, {
+					    opacity: 0,
+					    right: -50,
+					    ease: Linear.easeInOut,
+					    delay: 1
+					});
+					new ScrollScene({
+						triggerElement: ".army",
+						offset: windowHeight * 2,
+						triggerHook: "onEnter"
+					})
+					.setTween(tween2_3).addTo(controller);
+					
+					// In The Woods Guy ****
+					var tween2_3_1 = TweenMax.from('.in-the-woods-guy', 1, {
+					    opacity: 0,
+					    right: "18%",
+					    ease: Linear.easeInOut,
+					    delay: 1
+					});
+					new ScrollScene({
+						triggerElement: ".army",
+						offset: windowHeight * 2,
+						triggerHook: "onEnter"
+					})
+					.setTween(tween2_3_1).addTo(controller);
+					
+					// In The Woods Guy 2 ****
+					var tween2_3_2 = TweenMax.to('.in-the-woods-guy', 1, {
+					    opacity: 0.4,
+					    right: "-13%",
+					    scale: 0.6,
+					    ease: Linear.easeInOut,
+					});
+					new ScrollScene({
+						triggerElement: ".army",
+						offset: windowHeight * 3.5,
+						duration: windowHeight * 1.8,
+						triggerHook: "onEnter"
+					})
+					.setTween(tween2_3_2).addTo(controller);
+					
+					// Story ****
+					var tween2_4 = TweenMax.from('.s2-story-wrap', 0.7, {
+					    opacity: 0,
+					    top: "13%",
+					    ease: Linear.easeIn,
+					    delay: 1.5
+					});
+					new ScrollScene({
+						triggerElement: ".army",
+						offset: windowHeight * 2,
+						//duration: windowHeight,
+						triggerHook: "onEnter"
+					})
+					.setTween(tween2_4).addTo(controller);
 			
 				});
 			</script>
@@ -105,28 +173,131 @@
 							<span>1793-1861</span>
 						</div>
 					</div>
-					<div class="in-the-woods">
-						<div class="s2-story-wrap">
-							<div class="s2-year"></div>
-							<div class="cutedge-box">
-								<div class="cutedge-right-angle"></div>
-								<div class="cutedge-top"></div>
-								<div class="cutedge-body">
-									<dvi class="cutage-headline clearfix">
-										<h1>The Story Goes...</h1>
-									</dvi>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequa</p>
+					<div>
+						<img class="in-the-woods-guy" src="images/scene-2/in-the-woods-guy.png">
+						<div class="in-the-woods">
+							<div class="s2-story-wrap">
+								<div class="s2-year"></div>
+								<div class="cutedge-box">
+									<div class="cutedge-right-angle"></div>
+									<div class="cutedge-top"></div>
+									<div class="cutedge-body">
+										<dvi class="cutage-headline clearfix">
+											<h1>The Story Goes...</h1>
+										</dvi>
+										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequa</p>
+									</div>
+									<div class="cutedge-left-angle"></div>
+									<div class="cutedge-bottom"></div>
 								</div>
-								<div class="cutedge-left-angle"></div>
-								<div class="cutedge-bottom"></div>
 							</div>
-						</div>
+						</div><!-- .in-the-woods end -->
 					</div>
 				</div><!-- .s2-content-wrap end -->
 			</div><!-- .s2 end -->
 			<div class="back-fill"></div>
 		</div>
-		<script src="js/main.js"></script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+<svg version="1.1" id="timeline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 46.6 387.5" enable-background="new 0 0 46.6 387.5" xml:space="preserve">
+<g>
+	<g>
+		<line fill="none" stroke="#231F20" stroke-linecap="round" x1="13.2" y1="3.7" x2="13.2" y2="3.7"/>
+		<line fill="none" stroke="#231F20" stroke-linecap="round" stroke-dasharray="0,2" x1="13.2" y1="5.7" x2="13.2" y2="382.7"/>
+		<line fill="none" stroke="#231F20" stroke-linecap="round" x1="13.2" y1="383.7" x2="13.2" y2="383.7"/>
+	</g>
+</g>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="3.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="23.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="43.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="63.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="83.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="103.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.75" cx="13.2" cy="123.7" r="3.5"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="143.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="163.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="183.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="203.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="223.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="243.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="263.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="283.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="303.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="323.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="343.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="363.7" r="2"/>
+<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="383.7" r="2"/>
+<polygon fill="#1E3F14" points="0,121.5 4.9,123.7 0,125.9 "/>
+<text transform="matrix(1 0 0 1 21.2619 128.2083)" fill="#AF4159" font-family="'Oswald-Bold'" font-size="12">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 107.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 147.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 167.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 187.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 207.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 227.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 247.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 267.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 287.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 307.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 327.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 347.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 367.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 387.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 87.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 67.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 47.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 27.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text transform="matrix(1 0 0 1 22.8078 7.2083)" font-family="'Oswald'" font-size="8">1985</text>
+</svg>
+		
        
     </body>
 </html>
