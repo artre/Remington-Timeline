@@ -48,122 +48,10 @@
 					</div>
 				</div>
 			</div><!-- .s1 end -->
-			<script>
-				$(document).ready(function($) {
-					var windowHeight = $(window).innerHeight();
-					var s2MarginTop = ($('.army').offset().top + $(".army").height() ) - windowHeight;
-					$(window).on("resize", function () {
-						windowHeight = $(window).innerHeight();
-					});	
-					
-					
-					// SCENE 1 =============================
-					
-					// Duration ignored / replaced by scene duration now
-					var tween1 = TweenMax.to('.army', 0.5, {
-					    opacity: 0
-					});
-					
-					var scene1 = new ScrollScene({
-					    triggerElement: '.s2',
-					    duration: windowHeight, /* How many pixels to scroll / animate */
-					    offset: s2MarginTop,
-					    triggerHook: "onEnter"
-					})
-					.setTween(tween1)
-					.addTo(controller);
-
-					
-					
-					// SCENE 2 ==============================
-					
-					$(".s2").css("top", s2MarginTop);
-
-					// build scene
-					new ScrollScene({
-						triggerElement: ".army",
-						duration: windowHeight * 9,
-						offset: $(".army").height(),
-						triggerHook: "onLeave"
-						})
-						.setPin(".s2").addTo(controller).addIndicators();
-					
-					// Left Green Bar ****
-					var tween2_1 = TweenMax.from('.left-green-bar', 1, {
-					    opacity: 0.8,
-					    left: "-40%",
-					    ease: Linear.easeIn
-					});
-					new ScrollScene({
-						triggerElement: ".army",
-						offset: windowHeight * 2,
-						triggerHook: "onEnter"
-					})
-					.setTween(tween2_1).addTo(controller);
-					
-					// In The Woods ****
-					var tween2_3 = TweenMax.from('.in-the-woods', 1, {
-					    opacity: 0,
-					    right: -50,
-					    ease: Linear.easeInOut,
-					    delay: 1
-					});
-					new ScrollScene({
-						triggerElement: ".army",
-						offset: windowHeight * 2,
-						triggerHook: "onEnter"
-					})
-					.setTween(tween2_3).addTo(controller);
-					
-					// In The Woods Guy ****
-					var tween2_3_1 = TweenMax.from('.in-the-woods-guy', 1, {
-					    opacity: 0,
-					    right: "18%",
-					    ease: Linear.easeInOut,
-					    delay: 1
-					});
-					new ScrollScene({
-						triggerElement: ".army",
-						offset: windowHeight * 2,
-						triggerHook: "onEnter"
-					})
-					.setTween(tween2_3_1).addTo(controller);
-					
-					// In The Woods Guy 2 ****
-					var tween2_3_2 = TweenMax.to('.in-the-woods-guy', 1, {
-					    opacity: 0.4,
-					    right: "-13%",
-					    scale: 0.6,
-					    ease: Linear.easeInOut,
-					});
-					new ScrollScene({
-						triggerElement: ".army",
-						offset: windowHeight * 3.5,
-						duration: windowHeight * 1.8,
-						triggerHook: "onEnter"
-					})
-					.setTween(tween2_3_2).addTo(controller);
-					
-					// Story ****
-					var tween2_4 = TweenMax.from('.s2-story-wrap', 0.7, {
-					    opacity: 0,
-					    top: "13%",
-					    ease: Linear.easeIn,
-					    delay: 1.5
-					});
-					new ScrollScene({
-						triggerElement: ".army",
-						offset: windowHeight * 2,
-						//duration: windowHeight,
-						triggerHook: "onEnter"
-					})
-					.setTween(tween2_4).addTo(controller);
-			
-				});
-			</script>
+			<div class="s2-back"></div>
 			
 			<div class="s2 scene">
-				<div class="s2-back"></div>
+				
 				<div class="s2-content-wrap">
 					<div class="left-green-bar">
 						<img class="founder-photo" src="images/scene-2/Eliphalet_Remington.png">
@@ -194,7 +82,351 @@
 						</div><!-- .in-the-woods end -->
 					</div>
 				</div><!-- .s2-content-wrap end -->
+				<div class="nextriger"></div>
 			</div><!-- .s2 end -->
+			<script>
+				$(document).ready(function($) {
+					var windowHeight = $(window).innerHeight();
+					var windowWidth = $(window).innerWidth();
+					var armyHight = $(".army").height();
+					var armyOffset = $(".army").offset().top;
+					var s2MarginTop = (armyOffset + armyHight ) - windowHeight;
+					$(window).on("resize", function () {
+						windowHeight = $(window).innerHeight();
+					});	
+					
+					console.log("margin top " + s2MarginTop);
+					console.log("army height " + armyHight);
+					
+					console.log("window hight " + windowHeight);
+					console.log("army offset " + armyOffset);
+					// SCENE 1==========================================
+					
+					// Duration ignored / replaced by scene duration now
+					var tween1 = TweenMax.to('.army', 0.5, {
+					    opacity: 0
+					});
+					
+					var scene1 = new ScrollScene({
+					    triggerElement: '.s2',
+					    duration: windowHeight, /* How many pixels to scroll / animate */
+					    offset: s2MarginTop,
+					    triggerHook: "onEnter"
+					})
+					.setTween(tween1).addTo(controller);
+					
+					// Arrow Down ****
+					var tween1_2 = TweenMax.to('.arrow-down', 1, {
+					    scale: 2,
+						bottom: 37 - (s2MarginTop),
+					    ease: Linear.easeInOut
+					});
+					new ScrollScene({
+						triggerElement: ".s1",
+						triggerHook: "onLeave",
+						duration: s2MarginTop
+					})
+					.setTween(tween1_2).addTo(controller);
+										
+					
+					// SCENE 2 ==========================================
+					
+					$(".s2-back").css("height", s2MarginTop);
+					
+					// build scene
+					new ScrollScene({
+						triggerElement: ".s2-back",
+						duration: windowHeight * 3.9,
+						offset: s2MarginTop,
+						triggerHook: "onLeave"
+					})
+					.setPin(".s2").addTo(controller).addIndicators();
+					
+					// Left Green Bar ****
+					var tween2_1 = TweenMax.from('.left-green-bar', 1, {
+					    opacity: 0.8,
+					    left: "-40%",
+					    ease: Linear.easeIn
+					});
+					new ScrollScene({
+						triggerElement: ".army",
+						offset: windowHeight * 2,
+						triggerHook: "onEnter"
+					})
+					.setTween(tween2_1).addTo(controller);
+					
+					// In The Woods ****
+					var tween2_3 = TweenMax.from('.in-the-woods', 0.7, {
+					    opacity: 0,
+					    right: -50,
+					    ease: Linear.easeInOut,
+					    delay: 1
+					});
+					new ScrollScene({
+						triggerElement: ".army",
+						offset: windowHeight * 2,
+						triggerHook: "onEnter"
+					})
+					.setTween(tween2_3).addTo(controller);
+					
+					// In The Woods Guy ****
+					var tween2_3_1 = TweenMax.from('.in-the-woods-guy', 0.7, {
+					    opacity: 0,
+					    right: "18%",
+					    ease: Linear.easeInOut,
+					    delay: 1
+					});
+					new ScrollScene({
+						triggerElement: ".army",
+						offset: windowHeight * 2,
+						triggerHook: "onEnter"
+					})
+					.setTween(tween2_3_1).addTo(controller);
+					
+					// In The Woods Guy 2 ****
+					var tween2_3_2 = TweenMax.to('.in-the-woods-guy', 1, {
+					    opacity: 0.4,
+					    right: "-13%",
+					    bottom: "9%",
+					    scale: 0.5,
+					    ease: Linear.easeInOut,
+					});
+					new ScrollScene({
+						triggerElement: ".army",
+						offset: windowHeight * 3.5,
+						duration: windowHeight * 1.8,
+						triggerHook: "onEnter"
+					})
+					.setTween(tween2_3_2).addTo(controller);
+					
+					// Story ****
+					var tween2_4 = TweenMax.from('.s2-story-wrap', 0.7, {
+					    opacity: 0,
+					    top: "13%",
+					    ease: Linear.easeIn,
+					    delay: 1.5
+					});
+					new ScrollScene({
+						triggerElement: ".army",
+						offset: windowHeight * 2,
+						triggerHook: "onEnter"
+					})
+					.setTween(tween2_4).addTo(controller);
+					
+										
+					// SCENE 3 ============================================================================= 
+					//var emptyFill = $(".s2").height();
+					
+					new ScrollScene({
+						triggerElement: ".nextriger",
+						duration: windowHeight * 3,
+ 						offset: 10,
+						triggerHook: "onLeave"
+					})
+					.setPin(".s3").addTo(controller);
+					
+					// .s3-inner ****
+					var tween3 = TweenMax.from('.s3-inner', 0.7, {
+					    opacity: 0,
+					    ease: Linear.easeInOut
+					});
+					new ScrollScene({
+						triggerElement: ".s2",
+						offset: s2_hight,
+						duration: windowHeight / 2,
+						triggerHook: "onLeave"
+					})
+					.setTween(tween3).addTo(controller).addIndicators();
+					
+					// .s3-year ****
+					var tween3_1 = TweenMax.from('.s3-year', 1, {
+					    top: "-17%",
+					    scale: 0.4,
+					    ease: Linear.easeInOut
+					});
+					new ScrollScene({
+						triggerElement: ".s2",
+						offset: windowHeight,
+						duration: windowHeight / 2,
+						triggerHook: "onLeave"
+					})
+					.setTween(tween3_1).addTo(controller);
+					
+					// .s3-info ****
+					var tween3_1_1 = TweenMax.from('.s3-info', 1, {
+					    top: "40%",
+					    opacity: 0,
+					    ease: Linear.easeInOut
+					});
+					new ScrollScene({
+						triggerElement: ".s2",
+						offset: windowHeight * 1.2,
+						duration: windowHeight / 3,
+						triggerHook: "onLeave"
+					})
+					.setTween(tween3_1_1).addTo(controller);
+					
+					// .s3-gun ****
+					var tween3_2 = TweenMax.from('.s3-gun', 1, {
+					    top: "150%",
+					    scale: 2,
+					    ease: Linear.easeInOut
+					});
+					new ScrollScene({
+						triggerElement: ".s2",
+						offset: windowHeight * 1.5,
+						duration: windowHeight / 2,
+						triggerHook: "onLeave"
+					})
+					.setTween(tween3_2).addTo(controller);
+					
+					// .s3-h1 ****
+					var tween3_3 = TweenMax.from('.s3-h1', 1, {
+					    right: "58%",
+					    opacity: 0,
+					    ease: Linear.easeInOut
+					});
+					new ScrollScene({
+						triggerElement: ".s2",
+						offset: windowHeight * 2,
+						duration: windowHeight / 2,
+						triggerHook: "onLeave"
+					})
+					.setTween(tween3_3).addTo(controller);
+					
+					// .bracket-box ****
+					var tween3_4 = TweenMax.from('.bracket-box', 1, {
+					    left: "55%",
+					    opacity: 0,
+					    ease: Linear.easeInOut
+					});
+					new ScrollScene({
+						triggerElement: ".s2",
+						offset: windowHeight * 2,
+						duration: windowHeight / 2,
+						triggerHook: "onLeave"
+					})
+					.setTween(tween3_4).addTo(controller);
+					
+					// .bracket-left, bracket-right ****
+					var tween3_5 = TweenMax.from('.bracket-left', 1, {
+					    rotation: 360,
+					    opacity: 0,
+					    scale: 2,
+					    ease: Linear.easeInOut
+					});
+					new ScrollScene({
+						triggerElement: ".s2",
+						offset: windowHeight * 2,
+						duration: windowHeight / 2,
+						triggerHook: "onLeave"
+					})
+					.setTween(tween3_5).addTo(controller);
+					
+					// bracket-right ****
+					var tween3_5 = TweenMax.from('.bracket-right', 1, {
+					    rotation: "-360",
+					    opacity: 0,
+					    scale: 2,
+					    ease: Linear.easeInOut
+					});
+					new ScrollScene({
+						triggerElement: ".s2",
+						offset: windowHeight * 2,
+						duration: windowHeight / 2,
+						triggerHook: "onLeave"
+					})
+					.setTween(tween3_5).addTo(controller);
+					
+					// .s3-year END ****
+					var tween3_6 = TweenMax.to('.s3-year', 1, {
+					    top: "8%",
+					    opacity: 0,
+					    ease: Linear.easeInOut
+					});
+					new ScrollScene({
+						triggerElement: ".s2",
+						offset: windowHeight * 2.9,
+						duration: windowHeight / 2,
+						triggerHook: "onLeave"
+					})
+					.setTween(tween3_6).addTo(controller);
+					
+					// .s3-info END ****
+					var tween3_7 = TweenMax.to('.s3-info', 1, {
+					    top: "41%",
+					    opacity: 0,
+					    ease: Linear.easeInOut
+					});
+					new ScrollScene({
+						triggerElement: ".s2",
+						offset: windowHeight * 2.9,
+						duration: windowHeight / 2,
+						triggerHook: "onLeave"
+					})
+					.setTween(tween3_7).addTo(controller);
+					
+					
+					// .s3-inner END ****
+					var tween3_8 = TweenMax.to('.s3-inner', 0.1, {
+					    backgroundAttachment: "scroll",
+					    ease: Linear.easeInOut
+					});
+					new ScrollScene({
+						triggerElement: ".s2",
+ 						offset: (windowHeight * 3) + (s2_hight + 1),
+						triggerHook: "onLeave"
+					})
+					.setTween(tween3_8).addTo(controller);
+					
+					
+					// SCENE 4 ========================================== 
+					new ScrollScene({
+						triggerElement: ".test",
+						duration: windowHeight * 2,
+ 						offset: 40,
+						triggerHook: "onLeave"
+					})
+					.setPin(".s4").addTo(controller).addIndicators();
+					
+					
+			
+				});
+			</script>
+			
+<!-- 			<div class="s2_hight"></div> -->
+			<div class="s3 scene">
+				<div class="test"></div>
+				<div class="s3-inner">
+					<div class="s3-year"></div>
+					<div class="s3-info">
+						<div class="s3-info-inner">
+							<img class="s3-gun" src="images/scene-3/nylon77.png">
+							
+							<h1 class="s3-h1">Nylon 66</h1>
+							<div class="bracket-box">
+								<div class="bracket-box-inner">
+									<span>The first .22 autoloading rifle with  a stock made of DuPont Zytel</span>
+									<div class="bracket-left">
+										<div class="bracket-left-inner">
+											<div></div><div></div><div></div>
+										</div>
+									</div>
+									<div class="bracket-right">
+										<div class="bracket-right-inner">
+											<div></div><div></div><div></div>
+										</div>
+									</div>
+								</div>
+							</div><!-- .bracket-box end -->
+						</div><!-- .s3-info-inner end -->
+					</div><!-- .s3-info end -->
+				</div><!-- .s3-inner end -->
+			</div><!-- .s3 end -->
+			
+			<div class="s4 scene">
+				
+			</div><!-- .s4 end -->
 			<div class="back-fill"></div>
 		</div>
 		
