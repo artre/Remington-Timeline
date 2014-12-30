@@ -82,7 +82,7 @@
 						</div><!-- .in-the-woods end -->
 					</div>
 				</div><!-- .s2-content-wrap end -->
-				<div class="nextriger"></div>
+				<div class="nextriger3"></div>
 			</div><!-- .s2 end -->
 			<script>
 				$(document).ready(function($) {
@@ -215,11 +215,10 @@
 					
 										
 					// SCENE 3 ============================================================================= 
-					//var emptyFill = $(".s2").height();
 					
 					new ScrollScene({
-						triggerElement: ".nextriger",
-						duration: windowHeight * 3,
+						triggerElement: ".nextriger3",
+						duration: windowHeight * 3.5,
  						offset: 10,
 						triggerHook: "onLeave"
 					})
@@ -231,12 +230,12 @@
 					    ease: Linear.easeInOut
 					});
 					new ScrollScene({
-						triggerElement: ".s2",
-						offset: s2_hight,
+						triggerElement: ".nextriger3",
+						offset: 10,
 						duration: windowHeight / 2,
 						triggerHook: "onLeave"
 					})
-					.setTween(tween3).addTo(controller).addIndicators();
+					.setTween(tween3).addTo(controller);
 					
 					// .s3-year ****
 					var tween3_1 = TweenMax.from('.s3-year', 1, {
@@ -245,7 +244,7 @@
 					    ease: Linear.easeInOut
 					});
 					new ScrollScene({
-						triggerElement: ".s2",
+						triggerElement: ".nextriger3",
 						offset: windowHeight,
 						duration: windowHeight / 2,
 						triggerHook: "onLeave"
@@ -259,7 +258,7 @@
 					    ease: Linear.easeInOut
 					});
 					new ScrollScene({
-						triggerElement: ".s2",
+						triggerElement: ".nextriger3",
 						offset: windowHeight * 1.2,
 						duration: windowHeight / 3,
 						triggerHook: "onLeave"
@@ -273,7 +272,7 @@
 					    ease: Linear.easeInOut
 					});
 					new ScrollScene({
-						triggerElement: ".s2",
+						triggerElement: ".nextriger3",
 						offset: windowHeight * 1.5,
 						duration: windowHeight / 2,
 						triggerHook: "onLeave"
@@ -287,7 +286,7 @@
 					    ease: Linear.easeInOut
 					});
 					new ScrollScene({
-						triggerElement: ".s2",
+						triggerElement: ".nextriger3",
 						offset: windowHeight * 2,
 						duration: windowHeight / 2,
 						triggerHook: "onLeave"
@@ -301,7 +300,7 @@
 					    ease: Linear.easeInOut
 					});
 					new ScrollScene({
-						triggerElement: ".s2",
+						triggerElement: ".nextriger3",
 						offset: windowHeight * 2,
 						duration: windowHeight / 2,
 						triggerHook: "onLeave"
@@ -316,7 +315,7 @@
 					    ease: Linear.easeInOut
 					});
 					new ScrollScene({
-						triggerElement: ".s2",
+						triggerElement: ".nextriger3",
 						offset: windowHeight * 2,
 						duration: windowHeight / 2,
 						triggerHook: "onLeave"
@@ -331,7 +330,7 @@
 					    ease: Linear.easeInOut
 					});
 					new ScrollScene({
-						triggerElement: ".s2",
+						triggerElement: ".nextriger3",
 						offset: windowHeight * 2,
 						duration: windowHeight / 2,
 						triggerHook: "onLeave"
@@ -345,7 +344,7 @@
 					    ease: Linear.easeInOut
 					});
 					new ScrollScene({
-						triggerElement: ".s2",
+						triggerElement: ".nextriger3",
 						offset: windowHeight * 2.9,
 						duration: windowHeight / 2,
 						triggerHook: "onLeave"
@@ -359,7 +358,7 @@
 					    ease: Linear.easeInOut
 					});
 					new ScrollScene({
-						triggerElement: ".s2",
+						triggerElement: ".nextriger3",
 						offset: windowHeight * 2.9,
 						duration: windowHeight / 2,
 						triggerHook: "onLeave"
@@ -373,11 +372,12 @@
 					    ease: Linear.easeInOut
 					});
 					new ScrollScene({
-						triggerElement: ".s2",
- 						offset: (windowHeight * 3) + (s2_hight + 1),
+						triggerElement: ".nextriger3",
+ 						offset: (windowHeight * 3.5) + 10,
 						triggerHook: "onLeave"
 					})
 					.setTween(tween3_8).addTo(controller);
+				
 					
 					
 					// SCENE 4 ========================================== 
@@ -387,14 +387,14 @@
  						offset: 40,
 						triggerHook: "onLeave"
 					})
-					.setPin(".s4").addTo(controller).addIndicators();
+					.setPin(".s4").addTo(controller);
 					
 					
 			
 				});
 			</script>
 			
-<!-- 			<div class="s2_hight"></div> -->
+<!-- 			<div class="300"></div> -->
 			<div class="s3 scene">
 				<div class="test"></div>
 				<div class="s3-inner">

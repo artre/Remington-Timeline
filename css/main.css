@@ -311,18 +311,20 @@ body {
 	Scene 3
 ================================================================
 */
-.nextriger {
+.nextriger3 {
 	position: absolute;
 	bottom: 0;
+	left: 500px;
 	height: 10px;
 	width: 10px;
-	background-color: green;
-	z-index: 200px;
+	background-color: aqua;
+	z-index: 200;
 }
 .s3 {
 	position: relative;
  	background-color: #201a18;
 	z-index: 100;
+	overflow: hidden;
 }
 .s3-inner {
 	position: relative;
