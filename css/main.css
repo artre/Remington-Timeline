@@ -314,7 +314,7 @@ body {
 .nextriger3 {
 	position: absolute;
 	bottom: 0;
-	left: 500px;
+	left: 49%;
 	height: 10px;
 	width: 10px;
 	background-color: aqua;
@@ -334,12 +334,6 @@ body {
 	background: url("../images/scene-3/two-men.jpg") black; 
 	background-attachment: fixed; 
 	background-size: cover;
-}
-.test {
-	position: absolute;
-	height: 40px;width: 40px;
-	bottom: 0;
-	background-color: yellow;
 }
 .s3-year {
 	position: absolute;
@@ -457,33 +451,6 @@ body {
 	bottom: 0; right: 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 ================================================================
 	Scene 4
@@ -491,22 +458,78 @@ body {
 */
 .s4 {
 	position: relative;
-/* 	background: url("../images/scene-3/two-men.jpg") black; */
+	background: url("../images/all-pages/back-dark-lg.jpg") black;
 	background-color: blue;
 	background-attachment: fixed; 
 	background-size: cover;
-	z-index: 100;
+}
+.nextriger4 {
+	position: absolute;
+	height: 10px;width: 10px;
+	bottom: 0;
+	left: 49%;
+	background-color: aqua;
+	z-index: 900;
+}
+.record-photo {
+	position: absolute;
+	width: 34%;
+	max-width: 1000px;
+	top:4%; bottom: 0; left: 12%;
+	margin: auto;
+	box-shadow: 3px 10px 25px 10px rgba(0,0,0,1);
+}
+.s4-info {
+	position: absolute;
+	width: 24%;
+	right: 3.5%;
+	top: 8%;
+	color: white;
+	z-index: 40;
+}
+.s4-info h1 {
+	font: 700 50px/58px "Oswald", sans-serif;
+	color: #687498;
+	margin:0 0 20px 0;
+}
+.s4-span {
+	color: #bb5b5b;
+	font-weight: 700;
+}
+.anim-rec {
+	position: absolute;
+	top: 7%; bottom: 0; right: 8.5%;
+	width: 41.5%;
+	height: 86%;
+	outline: 1px dotted grey;
+	z-index: 30;
+}
+.berry {
+	position: absolute;
+	width: 24%;
+	left: 0; bottom: -1%;
+}
+.b-eye {
+	display: none;
 }
 
 
 
 
 
-
-
-
-
-
+.tom {
+	position: absolute;
+	width: 30.5%;
+	right: 0; bottom: -1%;
+}
+.test2 {
+	position: absolute;
+	width: 50px; height: 50px;
+	background-color: aqua;
+	top: 0; right: 0;
+	display: none;
+	font-size: 12px;
+}
 
 
 
