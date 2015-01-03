@@ -482,7 +482,7 @@ body {
 .s4-info {
 	position: absolute;
 	width: 24%;
-	right: 3.5%;
+	right: 8%;
 	top: 8%;
 	color: white;
 	z-index: 40;
@@ -501,25 +501,42 @@ body {
 	top: 7%; bottom: 0; right: 8.5%;
 	width: 41.5%;
 	height: 86%;
-	outline: 1px dotted grey;
+/* 	outline: 1px dotted grey; */
 	z-index: 30;
 }
 .berry {
 	position: absolute;
-	width: 24%;
+	width: 25.8%;
 	left: 0; bottom: -1%;
 }
+/*
 .b-eye {
 	display: none;
 }
-
-
+*/
+.s4-block {
+	width: 9%;
+	position: absolute;
+	left: 17%;
+	bottom: 19.5%;
+}
+/*
+.b-arm {
+	fill: #687498;
+	transform: rotate(20deg);
+    transform-origin: left top;
+}
+.b-arm-bottom {
+	transform: rotate(30deg);
+    transform-origin: 10% 95%;
+}
+*/
 
 
 
 .tom {
 	position: absolute;
-	width: 30.5%;
+	width: 41.5%;
 	right: 0; bottom: -1%;
 }
 .test2 {
@@ -530,8 +547,9 @@ body {
 	display: none;
 	font-size: 12px;
 }
-
-
+.s4-boom {
+	opacity: 0;
+}
 
 
 
