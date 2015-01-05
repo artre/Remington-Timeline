@@ -167,7 +167,7 @@ body {
 	background-color: orange;
 }
 .s2-back {
-	background-color: green;
+	background-color: #e3e3e3;
 	width: 100%;
 }
 .s2-content-wrap {
@@ -231,6 +231,13 @@ body {
 	right: 21%;
 	bottom: 13%;
 	z-index: 0;
+}
+.s2-squirrel {
+	position: absolute;
+	width: 5%;
+	right: 8%;
+	bottom: 10%;
+	z-index: 30;
 }
 .s2-story-wrap {
 	width: 39%;
