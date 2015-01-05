@@ -501,165 +501,64 @@
 						triggerHook: "onLeave"
 					})
 					.setTween(tween4_2).addTo(controller);
-					
-					// .s4-block ****
-/*
-					var tween4_3 = TweenMax.from('.s4-block', 1, {
-					    opacity: 0,
-					    ease:Linear.easeOut
-					}, 0.25);
-					new ScrollScene({
-						triggerElement: ".nextriger4",
- 						offset: windowHeight * 1.1,
- 						duration: windowHeight * 0.7,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween4_3).addTo(controller);
-*/
-
-
-
-
-/*
-					// show pin state
-					function updateBox (e) {
-						if (e.type == "enter") {
-							$("#pin p").text("Pinned.");
-						} else {
-							$("#pin p").text("Unpinned.");
-						}
-					}
-	
-					// build scenes
-					new ScrollScene({triggerElement: "#trigger", duration: 150})
-						.setPin("#pin")
-						.setClassToggle("#pin", "green")
-						.on("enter leave", updateBox)
-						.addTo(controller)
-						.addIndicators(); // show indicators (requires debug extension)
-	
-					new ScrollScene({triggerElement: "#trigger", duration: 150, offset: 300})
-						.setPin("#pin")
-						.setClassToggle("#pin", "green")
-						.on("enter leave", updateBox)
-						.addTo(controller)
-						.addIndicators(); // show indicators (requires debug extension)
-	
-					new ScrollScene({triggerElement: "#trigger", duration: 150, offset: 600})
-						.setPin("#pin")
-						.setClassToggle("#pin", "green")
-						.on("enter leave", updateBox)
-						.addTo(controller)
-						.addIndicators(); // show indicators (requires debug extension)
-	
-	
-	
-	
-	
-					var scene = new ScrollScene({triggerElement: "#trigger", duration: 200})
-						.addTo(controller)
-						.on("update", function (e) {
-							$("#scrollDirection").text(e.target.parent().info("scrollDirection"));
-						})
-						.on("enter leave", function (e) {
-							$("#state").text(e.type == "enter" ? "inside" : "outside");
-						})
-						.on("start end", function (e) {
-							$("#lastHit").text(e.type == "start" ? "top" : "bottom");
-						})
-						.on("progress", function (e) {
-							$("#progress").text(e.progress.toFixed(3));
-						});
-*/
-						
-/*
-						scene.on("enter", function (event) {
-						        alert("Entered a scene.");
-						});
-						=================================
-						
-						
-						var logo = $("#logo"),
-						    timelineLite = $("#timelinelite"),
-						    tagline = $("#tagline span"),
-							restartBtn = $("#restartBtn"),
-							tl = new TimelineLite();
-								
-							tl.from(logo, 0.5, {left:"-=60px", ease:Back.easeOut})
-					  		  .from(timelinelite, 0.5, {width:"0px", alpha:0}, "-=0.02")
-					  	      .staggerFrom(tagline, 0.5, {top:"-=30px", rotation:"-40deg", alpha:0, scale:1.8, ease:Back.easeOut}, 0.2);
-							
-						restartBtn.click(function() {
-							tl.restart();
-						});
-						
-						//show the demoBackground div after DOM is ready and all images loaded
-						TweenLite.set($("#demoBackground"), {visibility:"visible"});
-*/
-
-						
-						
-/*
-							tlEyes = new TimelineMax({ repeat: -1, repeatDelay: (Math.floor((Math.random() * 5) + 1))});
-							tlEyes.to(bEye, 0.2, {display: "none"});
-*/
 							
 															
-						var bEye = $(".b-eye"),
-							bArm = $(".b-arm"),
-							bArmBottom = $(".b-arm-bottom"),
-							s4Block = $(".s4-block"),
-							s4Boom = $(".s4-boom"),
-							s4BoomBack = $(".s4-boom-back");
-							
-						function blockPerish() {
-							s4Block.css("display", "none");
-							$(".test2").css("background-color", "red");
-						}
-						function blockAppear() {
-							s4Block.css("display", "block");
-						}
+					var bEye = $(".b-eye"),
+						bArm = $(".b-arm"),
+						bArmBottom = $(".b-arm-bottom"),
+						s4Block = $(".s4-block"),
+						s4Boom = $(".s4-boom"),
+						s4BoomBack = $(".s4-boom-back");
 						
-					    tlEyes = new TimelineMax({repeat: -1, repeatDelay: 2 });
-					    tlEyes.to(bEye, 0.2, {display: "none"});
-					    
-					    tlArm = new TimelineMax({onComplete: blockPerish, onStart: blockAppear,  repeat: -1, repeatDelay: 2.5, yoyo:false, delay: 1 });
-					    tlArm.from(bArm, 0.7, {rotation: 20, transformOrigin: "left top", ease:Back.easeInOut })
-					    	.from(bArmBottom, 0.5, {rotation: 30, transformOrigin: "10% 95%", ease:Back.easeIn }, 0)
-					    	.to(s4Block, 0.5, {bottom: "35%", rotation: 70, scale: 1.1, ease:Back.easeIn}, 0)
-					    	.to(s4Block, 0.7, {bottom: "90%", rotation: 170, scale: 1.4, ease:Back.easeOut}, 0.5)
-					    	.to(s4Boom, 0.2, {opacity: 0.3, scale: 1.8, marginLeft: "-2%", ease:Back.easeOut}, 1.15)
-					    	.to(s4Boom, 0.1, {opacity: 0, marginLeft: "-2%", ease:Expo.easeOut}, 1.35)
-					    	.to(s4Block, 1.2, {bottom: "105%", left: "-60%", opacity: 0, scale: 1.2, rotation: 1000}, 1.2)
-							.pause();
+					function blockPerish() {
+						s4Block.css("display", "none");
+						$(".test2").css("background-color", "red");
+					}
+					function blockAppear() {
+						s4Block.css("display", "block");
+					}
+					
+				    tlEyes = new TimelineMax({repeat: -1, repeatDelay: 2 });
+				    tlEyes.to(bEye, 0.2, {display: "none"});
+				    
+				    tlArm = new TimelineMax({onComplete: blockPerish, onStart: blockAppear,  repeat: -1, repeatDelay: 2.5, yoyo:false, delay: 1 });
+				    tlArm.from(bArm, 0.7, {rotation: 20, transformOrigin: "left top", ease:Back.easeInOut })
+				    	.from(bArmBottom, 0.5, {rotation: 30, transformOrigin: "10% 95%", ease:Back.easeIn }, 0)
+				    	.to(s4Block, 0.1, {opacity: 1}, 0)
+				    	.to(s4Block, 0.5, {bottom: "100%", rotation: 70, scale: 1.1, ease:Back.easeIn}, 0)
+				    	.to(s4Block, 0.7, {bottom: "183%", rotation: 170, scale: 1.4, ease:Back.easeOut}, 0.5)
+				    	.to(s4Boom, 0.2, {opacity: 0.3, scale: 1.8, marginLeft: "-2%", ease:Back.easeOut}, 1.15)
+				    	.to(s4Boom, 0.1, {opacity: 0, marginLeft: "-2%", ease:Expo.easeOut}, 1.35)
+				    	.to(s4Block, 1.2, {bottom: "207%", left: "-200%", opacity: 0, scale: 1.2, rotation: 1000}, 1.2)
+						.pause();
 /*					    	.from(bArm, 0.7, {rotation: 0, transformOrigin: "left top", ease:Back.easeInOut }, 2.2)
-					    	.from(bArmBottom, 0.5, {rotation: 0, transformOrigin: "10% 95%", ease:Back.easeIn }, 2.2);
+				    	.from(bArmBottom, 0.5, {rotation: 0, transformOrigin: "10% 95%", ease:Back.easeIn }, 2.2);
 */
-					    						    	
-						function shootAnim(e) {
-							if (e.type == "enter") {
-								$(".test2").css("display", "block").text("visible.");
-								
-								tlEyes.play();
-								tlArm.play();
+				    						    	
+					function shootAnim(e) {
+						if (e.type == "enter") {
+							$(".test2").css("display", "block").text("visible.");
+							
+							tlEyes.play();
+							tlArm.play();
 // 								bEye.css("display", "block");
-							} else {
-								$(".test2").css("display", "none").text("invisible.");
+						} else {
+							$(".test2").css("display", "none").text("invisible.");
 // 								bEye.css("display", "none");
-								tlEyes.pause();
-								tlArm.pause();
-							}
+							tlEyes.pause();
+							tlArm.pause();
 						}
-						
-						new ScrollScene({
-							triggerElement: ".nextriger4", 
-							offset: windowHeight * 1.9,
-	 						duration: windowHeight,
-							triggerHook: "onLeave"
-						})
-						.addTo(controller)
-						.on("enter leave", shootAnim)
-						.addIndicators();
+					}
+					
+					new ScrollScene({
+						triggerElement: ".nextriger4", 
+						offset: windowHeight * 1.9,
+ 						duration: windowHeight,
+						triggerHook: "onLeave"
+					})
+					.addTo(controller)
+					.on("enter leave", shootAnim)
+					.addIndicators();
 						
 
 
@@ -782,16 +681,23 @@
 						</g>
 						</svg>
 					</div>
-					<div class="s4-block s4-person">
-						<svg version="1.1" id="block-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-							 viewBox="0 0 180.7 155" enable-background="new 0 0 180.7 155" xml:space="preserve">
-							<g>
-								<polygon fill="#AD9B7F" points="112.1,148.4 30,134.8 7.1,63.4 89.2,77 	"/>
-								<polygon fill="#A39274" points="112.1,148.4 170.9,89.6 148,18.2 89.2,77 	"/>
-								<polygon fill="#C1AC8A" points="66.7,8 7.1,63.4 89.2,77 148,18.2 	"/>
-							</g>
-						</svg>
-					</div>
+					
+					<div class="s4-block-outer">
+						<div class="s4-block-inner">
+							<img class="s4-block-back" src="images/scene-4/block-back.jpg">
+							<div class="s4-block">
+								<svg version="1.1" id="block-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+									 viewBox="0 0 180.7 155" enable-background="new 0 0 180.7 155" xml:space="preserve">
+									<g>
+										<polygon fill="#AD9B7F" points="112.1,148.4 30,134.8 7.1,63.4 89.2,77 	"/>
+										<polygon fill="#A39274" points="112.1,148.4 170.9,89.6 148,18.2 89.2,77 	"/>
+										<polygon fill="#C1AC8A" points="66.7,8 7.1,63.4 89.2,77 148,18.2 	"/>
+									</g>
+								</svg>
+							</div><!-- .s4-block end -->
+						</div><!-- .s4-block-inner end -->
+					</div><!-- .s4-block-outer end -->
+					
 					<div class="tom s4-person">
 						<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 655.1 854.3" enable-background="new 0 0 655.1 854.3" xml:space="preserve">
@@ -978,7 +884,9 @@
 							<path fill="none" stroke="#494238" stroke-miterlimit="10" d="M554.6,461.5c0,0-1.3,14,0,18.3"/>
 							<path fill="#635A4F" d="M315.6,366.8c0,0-7-11.2,0-17.6s25.7-17.3,33.3-15.3c7.7,2,9,3,8.7,6s5.8,10.7,0,16.7s-22,11.4-28.4,12.5
 								C322.9,370.2,317.8,371.7,315.6,366.8z"/>
-							<g>
+								
+								
+							<g class="s4-gun">
 								<path fill="#4F3625" d="M540.3,580c0,0,37.9-31.5,44.3-39.3c6.4-7.8,12.1-17.3,12.1-17.3l-110.7-85c0,0-36.3-45-38-46.1
 									c-1.7-1.1-39.9-40.9-39.9-40.9L229.7,173l-2.7-3.4c0,0-1.2-7.4,1.5-9.6c2.6-2.2,2.6-2.2,2.6-2.2l-9.5-10.1c0,0-22.5-7.9-25.2-9.5
 									c-2.7-1.6-4.4-4.9-4.4-4.9l-16.7,14.7l41.9,43.1l-0.4,14l118.9,117.9c0,0-2.2,5.4-2.2,7s91.9,92.1,91.9,92.1s11.6,9,14.2,11.5
@@ -989,6 +897,9 @@
 									l-16.4-24.8l-16.5-18L407.8,352.1z"/>
 								<path fill="none" stroke="#494238" stroke-miterlimit="10" d="M407.8,406.4c0,0,4.8,13.2,7.5,19.2c2.7,6,6.8,11.3,15.3,11.3"/>
 							</g>
+							
+							
+							
 							<g>
 								<path fill="#CEB4AB" d="M505.6,444.5l-24.9-18c0,0,0.1-12.7-8-19.7s-10.8-8.9-17.8-8s-6.7,2.7-3.3,6c3.3,3.3,0.6,5.3-2.3,7.3
 									c-2.8,2.1-19.7,6.8-21.7,9.4s-7.3,8.3,0,10.3s17.3-2.7,17.3-2.7s-15.7,4-17.7,6.3c-2,2.3-2.7,11.3-0.3,12
@@ -1007,7 +918,7 @@
 								C327.5,368.7,327.1,366.9,325.2,363.1z"/>
 						</svg>
 					</div>
-				</div>
+				</div><!-- .anim-rec end -->
 				
 			</div><!-- .s4 end -->
 			

@@ -485,6 +485,7 @@ body {
 	top:4%; bottom: 0; left: 12%;
 	margin: auto;
 	box-shadow: 3px 10px 25px 10px rgba(0,0,0,1);
+	z-index: 100;
 }
 .s4-info {
 	position: absolute;
@@ -516,16 +517,25 @@ body {
 	width: 25.8%;
 	left: 0; bottom: -1%;
 }
-/*
-.b-eye {
-	display: none;
-}
-*/
-.s4-block {
-	width: 9%;
+.s4-block-outer {
 	position: absolute;
-	left: 17%;
-	bottom: 19.5%;
+	bottom: 0;
+	left: 0;
+	width: 25.8%;
+}
+.s4-block-inner {
+	position: relative;
+}
+.s4-block-back {
+	width: 100%;
+	opacity: 0;
+}
+.s4-block {
+	width: 36%;
+	position: absolute;
+	left: 64%;
+	bottom: 20%;
+	opacity: 0;
 }
 /*
 .b-arm {
@@ -538,9 +548,6 @@ body {
     transform-origin: 10% 95%;
 }
 */
-
-
-
 .tom {
 	position: absolute;
 	width: 41.5%;
