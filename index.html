@@ -509,6 +509,7 @@
 						s4Block = $(".s4-block"),
 						s4Boom = $(".s4-boom"),
 						s4BoomBack = $(".s4-boom-back");
+						s4Gun = $(".s4-gun");
 						
 					function blockPerish() {
 						s4Block.css("display", "none");
@@ -524,6 +525,8 @@
 				    tlArm = new TimelineMax({onComplete: blockPerish, onStart: blockAppear,  repeat: -1, repeatDelay: 2.5, yoyo:false, delay: 1 });
 				    tlArm.from(bArm, 0.7, {rotation: 20, transformOrigin: "left top", ease:Back.easeInOut })
 				    	.from(bArmBottom, 0.5, {rotation: 30, transformOrigin: "10% 95%", ease:Back.easeIn }, 0)
+				    	.to(s4Gun, 0.05, {attr:{transform:"translate(5,5)"}}, 1.05)
+				    	.to(s4Gun, 0.05, {attr:{transform:"translate(0,0)"}}, 1.15)
 				    	.to(s4Block, 0.1, {opacity: 1}, 0)
 				    	.to(s4Block, 0.5, {bottom: "100%", rotation: 70, scale: 1.1, ease:Back.easeIn}, 0)
 				    	.to(s4Block, 0.7, {bottom: "183%", rotation: 170, scale: 1.4, ease:Back.easeOut}, 0.5)
