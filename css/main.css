@@ -1,3 +1,5 @@
+
+
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 *, *:after, *::before {
 	-webkit-box-sizing: border-box;
@@ -66,6 +68,16 @@ body {
 	min-height: 500px;
 	z-index: 900;
 }
+/*
+#timeline-light {
+	position: fixed;
+	height: 90%;
+	top: 5%;
+	left: 3%;
+	min-height: 500px;
+	z-index: 900;
+}
+*/
 .scene {
 	height: 100%;
 	width: 100%;
@@ -95,14 +107,14 @@ body {
 .rem-logo {
 	position: absolute;
 	top: 27%;
-	width: 218px;
+	width: 15%;
 	left: 0; right: 0; margin-left: auto; margin-right: auto;
 	z-index: 20;
 }
 .years-200 {
 	position: absolute;
 	top: 45%;
-	width: 218px;
+	width: 15%;
 	left: 0; right: 0; margin-left: auto; margin-right: auto;
 	z-index: 20;
 }
@@ -135,6 +147,7 @@ body {
 .arrow-tri {
 	width: 0;
 	height: 0;
+	margin: 0 auto;
 	border-style: solid;
 	border-width: 37px 41.5px 0 41.5px;
 	border-color: rgba(32,63,22,0.5) transparent transparent transparent;
@@ -582,49 +595,101 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ==========================================================================
    Media Queries
    ========================================================================== */
 
+@media only screen and (min-width: 1450px) {/* large desktops */
+
+.arrow-down {
+	width: 200px;
+	height: 154px;
+}
+.arrow-rect {
+	width: 134px;
+	height: 64px;
+}
+.arrow-tri {
+	border-width: 70px 97px 0 97px;
+}
+.arrow-words {
+	top: 15px;
+	left: 0; right: 0; margin: 0 auto;
+	font: 500 30px/35px "Oswald", sans-serif;
+	color: rgba(255,255,255,0.8);
+	text-align: center;
+}
+/*
+================================================================
+	Scene 2
+================================================================
+*/
+
+
+.founder-info span:nth-child(1) {
+	font: 700 43px "Oswald";
+}
+.founder-info span:nth-child(2) {
+	font: 400 30px "Oswald";
+}
+.founder-info span:nth-child(3) {
+	font: 700 48px "Oswald";
+}
+.s2-year {
+	width: 360px;
+	height: 180px;
+}
+.cutage-headline h1 {
+	font: 700 43px "Oswald", sans-serif;
+}
+.cutedge-body p {
+	font-size: 21px;
+}
+/*
+================================================================
+	Scene 3
+================================================================
+*/
+.s3-year {
+	width: 450px;
+	height: 210px;
+	background: url("../images/all-pages/year-numbers.png") 0 -219px;
+	background-size: 100% auto;
+}
+.s3-h1 {
+	font-size: 78px;
+}
+.bracket-box {
+	bottom: 12%;
+	font: 400 35px/40px "Oswald", sans-serif;
+}
+.bracket-box-inner {
+	padding: 35px;
+}
+/*
+================================================================
+	Scene 4
+================================================================
+*/
+
+
+.s4-info h1 {
+	font: 700 78px/92px "Oswald", sans-serif;
+}
+.s4-info p {
+	font-size: 25px;
+}
+
+
+}/* END OF MEDIA */
+
+
+
+/*
 @media only screen and (min-width: 35em) {
 
 }
+*/
 
 @media print,
        (-o-min-device-pixel-ratio: 5/4),

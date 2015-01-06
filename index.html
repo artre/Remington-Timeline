@@ -133,6 +133,13 @@
 					
 					console.log("window hight " + windowHeight);
 					console.log("army offset " + armyOffset);
+					
+					
+					
+					
+					
+					
+					
 					// SCENE 1==========================================
 					
 					// Duration ignored / replaced by scene duration now
@@ -182,11 +189,11 @@
 					// build scene
 					new ScrollScene({
 						triggerElement: ".s2-back",
-						duration: windowHeight * 3.2,
+						duration: windowHeight * 3.5,
 						offset: s2MarginTop,
 						triggerHook: "onLeave"
 					})
-					.setPin(".s2").addTo(controller).addIndicators();
+					.setPin(".s2").addTo(controller);
 					
 					// Left Green Bar ****
 					var tween2_1 = TweenMax.from('.left-green-bar', 1, {
@@ -196,7 +203,8 @@
 					});
 					new ScrollScene({
 						triggerElement: ".army",
-						offset: windowHeight * 2,
+						offset: windowHeight * 1.8,
+						duration: windowHeight * 1.5,
 						triggerHook: "onEnter"
 					})
 					.setTween(tween2_1).addTo(controller);
@@ -210,7 +218,8 @@
 					});
 					new ScrollScene({
 						triggerElement: ".army",
-						offset: windowHeight * 2,
+						offset: windowHeight * 1.8,
+						duration: windowHeight * 1.5,
 						triggerHook: "onEnter"
 					})
 					.setTween(tween2_3).addTo(controller);
@@ -224,7 +233,8 @@
 					});
 					new ScrollScene({
 						triggerElement: ".army",
-						offset: windowHeight * 2,
+						offset: windowHeight * 1.8,
+						duration: windowHeight * 1.5,
 						triggerHook: "onEnter"
 					})
 					.setTween(tween2_3_1).addTo(controller);
@@ -239,7 +249,7 @@
 					});
 					new ScrollScene({
 						triggerElement: ".army",
-						offset: windowHeight * 3.5,
+						offset: windowHeight * 4.2,
 						duration: windowHeight * 1.8,
 						triggerHook: "onEnter"
 					})
@@ -252,7 +262,7 @@
 					});
 					new ScrollScene({
 						triggerElement: ".army",
-						offset: windowHeight * 3,
+						offset: windowHeight * 4.2,
 						duration: windowHeight * 0.6,
 						triggerHook: "onEnter"
 					})
@@ -267,7 +277,8 @@
 					});
 					new ScrollScene({
 						triggerElement: ".army",
-						offset: windowHeight * 2,
+						offset: windowHeight * 2.5,
+						duration: windowHeight * 1.5,
 						triggerHook: "onEnter"
 					})
 					.setTween(tween2_4).addTo(controller);
@@ -277,7 +288,7 @@
 					
 					new ScrollScene({
 						triggerElement: ".nextriger3",
-						duration: windowHeight * 3.5,
+						duration: windowHeight * 4,
  						offset: 10,
 						triggerHook: "onLeave"
 					})
@@ -361,12 +372,12 @@
 					new ScrollScene({
 						triggerElement: ".nextriger3",
 						offset: windowHeight * 2,
-						duration: windowHeight / 2,
+						duration: windowHeight,
 						triggerHook: "onLeave"
 					})
 					.setTween(tween3_4).addTo(controller);
 					
-					// .bracket-left, bracket-right ****
+					// .bracket-left ****
 					var tween3_5 = TweenMax.from('.bracket-left', 1, {
 					    rotation: 360,
 					    opacity: 0,
@@ -376,7 +387,7 @@
 					new ScrollScene({
 						triggerElement: ".nextriger3",
 						offset: windowHeight * 2,
-						duration: windowHeight / 2,
+						duration: windowHeight,
 						triggerHook: "onLeave"
 					})
 					.setTween(tween3_5).addTo(controller);
@@ -391,7 +402,7 @@
 					new ScrollScene({
 						triggerElement: ".nextriger3",
 						offset: windowHeight * 2,
-						duration: windowHeight / 2,
+						duration: windowHeight,
 						triggerHook: "onLeave"
 					})
 					.setTween(tween3_5).addTo(controller);
@@ -404,7 +415,7 @@
 					});
 					new ScrollScene({
 						triggerElement: ".nextriger3",
-						offset: windowHeight * 2.9,
+						offset: windowHeight * 3.5,
 						duration: windowHeight / 2,
 						triggerHook: "onLeave"
 					})
@@ -418,7 +429,7 @@
 					});
 					new ScrollScene({
 						triggerElement: ".nextriger3",
-						offset: windowHeight * 2.9,
+						offset: windowHeight * 3.5,
 						duration: windowHeight / 2,
 						triggerHook: "onLeave"
 					})
@@ -432,7 +443,7 @@
 					});
 					new ScrollScene({
 						triggerElement: ".nextriger3",
- 						offset: (windowHeight * 3.5) + 10,
+ 						offset: (windowHeight * 4) + 10,
 						triggerHook: "onLeave"
 					})
 					.setTween(tween3_8).addTo(controller);
@@ -522,11 +533,9 @@
 				    tlEyes = new TimelineMax({repeat: -1, repeatDelay: 2 });
 				    tlEyes.to(bEye, 0.2, {display: "none"});
 				    
-				    tlArm = new TimelineMax({onComplete: blockPerish, onStart: blockAppear,  repeat: -1, repeatDelay: 2, yoyo:false, delay: 1 });
+				    tlArm = new TimelineMax({onComplete: blockPerish, onStart: blockAppear,  repeat: -1, repeatDelay: 1, yoyo:false, delay: 1 });
 				    tlArm.from(bArm, 0.7, {rotation: 20, transformOrigin: "left top", ease:Back.easeInOut })
 				    	.from(bArmBottom, 0.5, {rotation: 30, transformOrigin: "10% 95%", ease:Back.easeIn }, 0)
-				    	//.to(s4Gun, 0.2, {attr:{transform:"translate(15,15)"}}, 1.05)
-				    	//.to(s4Gun, 0.2, {attr:{transform:"translate(0,0)"}}, 1.25)
 				    	.to(s4Gun, 0.1, {x:15, y:15}, 1.05)
 				    	.to(s4Gun, 0.1, {x:0, y:0}, 1.15)
 				    	.to(s4Block, 0.1, {opacity: 1}, 0)
@@ -536,21 +545,17 @@
 				    	.to(s4Boom, 0.1, {opacity: 0, marginLeft: "-2%", ease:Expo.easeOut}, 1.35)
 				    	.to(s4Block, 1.2, {bottom: "207%", left: "-200%", opacity: 0, scale: 1.2, rotation: 1000}, 1.2)
 						.pause();
-/*					    	.from(bArm, 0.7, {rotation: 0, transformOrigin: "left top", ease:Back.easeInOut }, 2.2)
-				    	.from(bArmBottom, 0.5, {rotation: 0, transformOrigin: "10% 95%", ease:Back.easeIn }, 2.2);
-*/
-				    						    	
+						
 					function shootAnim(e) {
 						if (e.type == "enter") {
 							$(".test2").css("display", "block").text("visible.");
 							
 							tlEyes.play();
 							tlArm.play();
-// 								bEye.css("display", "block");
 						} else {
 							$(".test2").css("display", "none").text("invisible.");
-// 								bEye.css("display", "none");
 							tlEyes.pause();
+							tlArm.restart();
 							tlArm.pause();
 						}
 					}
@@ -558,15 +563,89 @@
 					new ScrollScene({
 						triggerElement: ".nextriger4", 
 						offset: windowHeight * 1.9,
- 						duration: windowHeight,
+ 						duration: windowHeight * 2.5,
 						triggerHook: "onLeave"
 					})
 					.addTo(controller)
 					.on("enter leave", shootAnim)
 					.addIndicators();
 						
+						
+						
+					// Timeline ==========================================
+					
+					var time_dark = $("#timeline"),
+						time_point = $(".time-point"),
+						time_year = $(".time-year"),
+						time_path = $(".time-path"),
+						time_arrow = $("#time-arrow");
+					
+					
+					// s3
+					var tween_time_1 = TweenMax.staggerTo(time_point, 1, {
+					    fill: "#1E3F14",
+ 					    stroke:"white"
+					}, -0.2);  // negative value is making animation from the last element
+					new ScrollScene({
+						triggerElement: ".s3",
+// 						offset: windowHeight * 0.2,
+ 						duration: windowHeight,
+						triggerHook: "onEnter"
+					})
+					.setTween(tween_time_1).addTo(controller);
+						
+					var tween_time_1_1 = TweenMax.staggerTo(time_year, 1, {
+					    fill: "white"
+					}, -0.2);
+					new ScrollScene({
+						triggerElement: ".s3",
+// 						offset: windowHeight * 0.2,
+ 						duration: windowHeight,
+						triggerHook: "onEnter"
+					})
+					.setTween(tween_time_1_1).addTo(controller);
+					
+					var tween_time_1_2 = TweenMax.staggerTo(time_path, 1, {
+					    stroke: "#cccccc"
+					}, -0.2);
+					new ScrollScene({
+						triggerElement: ".s3",
+						offset: windowHeight * 0.2,
+ 						duration: windowHeight,
+						triggerHook: "onEnter"
+					})
+					.setTween(tween_time_1_2).addTo(controller);
+					
+					var tween_time_1_3 = TweenMax.to(time_arrow, 1, {
+					    fill: "white"
+					});
+					new ScrollScene({
+						triggerElement: ".s3",
+						offset: windowHeight * 0.5,
+ 						duration: windowHeight * 0.5,
+						triggerHook: "onEnter"
+					})
+					.setTween(tween_time_1_3).addTo(controller);
 
 
+					function y1816(e) {
+						if (e.type == "enter") {
+							var tween_y1816 = TweenMax.to(".y1816", 1, {fill: "#AF4159",fontSize: 12,fontWeight: 700});
+							new ScrollScene({triggerElement: ".s2-back", duration: windowHeight / 2, offset: s2MarginTop, triggerHook: "onLeave"})
+							.setTween(tween_y1816).addTo(controller);
+						} else {
+							$(".y1816").css({"fill": "black", "font-size": 8, "font-weight": 400});
+						}
+					}
+					new ScrollScene({
+						triggerElement: ".s2-back",
+						duration: windowHeight * 3.5,
+						offset: s2MarginTop,
+						triggerHook: "onLeave"
+					})
+					.addTo(controller)
+					.on("enter leave", y1816)
+					.addIndicators();
 
 				});
 			</script>
@@ -929,103 +1008,157 @@
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 <svg version="1.1" id="timeline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 46.6 387.5" enable-background="new 0 0 46.6 387.5" xml:space="preserve">
 <g>
 	<g>
-		<line fill="none" stroke="#231F20" stroke-linecap="round" x1="13.2" y1="3.7" x2="13.2" y2="3.7"/>
-		<line fill="none" stroke="#231F20" stroke-linecap="round" stroke-dasharray="0,2" x1="13.2" y1="5.7" x2="13.2" y2="382.7"/>
-		<line fill="none" stroke="#231F20" stroke-linecap="round" x1="13.2" y1="383.7" x2="13.2" y2="383.7"/>
+		<line class="time-path" fill="none" stroke="#231F20" stroke-linecap="round" x1="13.2" y1="3.7" x2="13.2" y2="3.7"/>
+		<line class="time-path" fill="none" stroke="#231F20" stroke-linecap="round" stroke-dasharray="0.1, 2.5" x1="13.2" y1="5.7" x2="13.2" y2="382.7"/>
+		<line class="time-path" fill="none" stroke="#231F20" stroke-linecap="round" x1="13.2" y1="383.7" x2="13.2" y2="383.7"/>
 	</g>
 </g>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="3.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="23.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="43.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="63.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="83.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="103.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.75" cx="13.2" cy="123.7" r="3.5"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="143.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="163.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="183.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="203.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="223.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="243.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="263.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="283.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="303.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="323.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="343.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="363.7" r="2"/>
-<circle fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="383.7" r="2"/>
-<polygon fill="#1E3F14" points="0,121.5 4.9,123.7 0,125.9 "/>
-<text transform="matrix(1 0 0 1 21.2619 128.2083)" fill="#AF4159" font-family="'Oswald-Bold'" font-size="12">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 107.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 147.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 167.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 187.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 207.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 227.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 247.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 267.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 287.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 307.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 327.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 347.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 367.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 387.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 87.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 67.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 47.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 27.2083)" font-family="'Oswald'" font-size="8">1985</text>
-<text transform="matrix(1 0 0 1 22.8078 7.2083)" font-family="'Oswald'" font-size="8">1985</text>
-</svg>
+<g>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="3.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="23.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="43.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="63.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="83.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="103.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.75" cx="13.2" cy="123.7" r="3.5"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="143.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="163.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="183.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="203.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="223.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="243.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="263.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="283.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="303.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="323.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="343.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="363.7" r="2"/>
+	<circle class="time-point" fill="#FFFFFF" stroke="#1E3F14" stroke-width="1.3333" cx="13.2" cy="383.7" r="2"/>
+</g>
+<polygon id="time-arrow" fill="#1E3F14" points="0,121.5 4.9,123.7 0,125.9 "/>
+<text class="time-year y1816" transform="matrix(1 0 0 1 22.8078 7.2083)" font-family="'Oswald'" font-size="8">1816</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 27.2083)" font-family="'Oswald'" font-size="8">1959</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 47.2083)" font-family="'Oswald'" font-size="8">1997</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 67.2083)" font-family="'Oswald'" font-size="8">1996</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 87.2083)" font-family="'Oswald'" font-size="8">1995</text>
+<text class="time-year" transform="matrix(1 0 0 1 21.2619 128.2083)" fill="#AF4159" font-family="'Oswald-Bold'" font-size="12">1985</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 107.2083)" font-family="'Oswald'" font-size="8">1959</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 147.2083)" font-family="'Oswald'" font-size="8">1982</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 167.2083)" font-family="'Oswald'" font-size="8">1983</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 187.2083)" font-family="'Oswald'" font-size="8">1984</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 207.2083)" font-family="'Oswald'" font-size="8">1985</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 227.2083)" font-family="'Oswald'" font-size="8">1986</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 247.2083)" font-family="'Oswald'" font-size="8">1987</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 267.2083)" font-family="'Oswald'" font-size="8">1988</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 287.2083)" font-family="'Oswald'" font-size="8">1989</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 307.2083)" font-family="'Oswald'" font-size="8">1990</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 327.2083)" font-family="'Oswald'" font-size="8">1991</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 347.2083)" font-family="'Oswald'" font-size="8">1992</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 367.2083)" font-family="'Oswald'" font-size="8">1993</text>
+<text class="time-year" transform="matrix(1 0 0 1 22.8078 387.2083)" font-family="'Oswald'" font-size="8">1994</text>
+
+</svg>		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+<!--
+<svg version="1.1" id="timeline-light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 47.2 388.7" enable-background="new 0 0 47.2 388.7" xml:space="preserve">
+<g>
+	<g>
+		<g>
+			<line fill="none" stroke="#FFFFFF" stroke-linecap="round" x1="13.2" y1="3.7" x2="13.2" y2="3.7"/>
+			<line fill="none" stroke="#cccccc" stroke-linecap="round" stroke-dasharray="0.1, 2.5" x1="13.2" y1="5.7" x2="13.2" y2="382.7"/>
+			<line fill="none" stroke="#FFFFFF" stroke-linecap="round" x1="13.2" y1="383.7" x2="13.2" y2="383.7"/>
+		</g>
+	</g>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="3.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="23.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="43.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="63.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="83.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="103.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.75" cx="13.2" cy="123.7" r="3.5"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="143.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="163.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="183.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="203.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="223.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="243.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="263.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="283.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="303.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="323.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="343.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="363.7" r="2"/>
+	<circle fill="#1E3F14" stroke="#FFFFFF" stroke-width="1.3333" cx="13.2" cy="383.7" r="2"/>
+	<polygon fill="#FFFFFF" points="0,121.5 4.9,123.7 0,125.9 	"/>
+	<text transform="matrix(1 0 0 1 21.2619 128.2084)" fill="#AF4159" font-family="'Oswald-Bold'" font-size="12">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 107.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 147.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 167.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 187.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 207.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 227.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 247.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 267.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 287.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 307.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 327.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 347.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 367.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 387.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 87.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 67.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 47.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 27.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+	<text transform="matrix(1 0 0 1 22.8078 7.2084)" fill="#FFFFFF" font-family="'Oswald'" font-size="8">1985</text>
+</g>
+</svg>		
+		
+-->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
 		
        
     </body>
