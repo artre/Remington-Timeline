@@ -593,9 +593,7 @@
 					})
 					.setTween(tween_time_1).addTo(controller);
 						
-					var tween_time_1_1 = TweenMax.staggerTo(time_year, 1, {
-					    fill: "white"
-					}, -0.2);
+					var tween_time_1_1 = TweenMax.staggerFromTo(time_year, 1, {fill: "black"},{fill: "white"}, -0.2);
 					new ScrollScene({
 						triggerElement: ".s3",
  						duration: windowHeight,
