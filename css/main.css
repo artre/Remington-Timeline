@@ -1,6 +1,10 @@
-
-
-/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600,700,900);
+@import url(normalize.min.css);
+@import url(icons.css);
+/*--------------------------------------------------*/
+/*   General
+/*--------------------------------------------------*/
 *, *:after, *::before {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -8,6 +12,13 @@
 }
 html,button,input,select,textarea {
     color: #222;
+}
+html, body, .container {
+	height: 100%;
+}
+body {
+	background-color: #555555;
+	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 }
 html {
     font-size: 1em;
@@ -46,17 +57,6 @@ textarea {
     color: #000;
     padding: 0.2em 0;
 }
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-html, body, .container {
-	height: 100%;
-}
-body {
-	background-color: red;
-	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-}
 .ScrollSceneIndicators {
 	z-index: 999999 !important;
 }
@@ -78,6 +78,57 @@ body {
 	z-index: 900;
 }
 */
+
+/*--------------------------------------------------*/
+/*   ADDITIONAL INFO
+/*--------------------------------------------------*/
+
+.btn-info {
+	width: 54px;
+	height: 54px;
+	border-radius: 27px;
+	background-color: rgba(0,0,0,.4);
+	position: absolute;
+	cursor: pointer;
+}
+.icon-wrap {
+	display: block;
+	text-align: center;
+	width: 32px;
+	height: 32px;
+	border-radius: 16px;
+	margin: 11px 0 0 11px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+50,f9f9f9+50 */
+	background: #ffffff; 
+	background: -moz-linear-gradient(-45deg,  #ffffff 50%, #eeeeee 50%);
+	background: -webkit-linear-gradient(-45deg,  #ffffff 50%,#eeeeee 50%);
+	background: linear-gradient(135deg,  #ffffff 50%,#eeeeee 50%);
+	box-shadow: 1px 1px 3px rgba(0,0,0,.5);
+	-webkit-transition:all 0.4s ease-in-out;
+	-moz-transition:all 0.4s ease-in-out;
+	transition:all 0.4s ease-in-out;
+}
+.icon-wrap > i {
+	line-height: 32px;
+	font-size: 23px;
+	color: #a33d53;
+	-webkit-transition:all 0.4s ease-in-out;
+	-moz-transition:all 0.4s ease-in-out;
+	transition:all 0.4s ease-in-out;
+}
+.btn-info:hover .icon-wrap {
+	-ms-transform: scale(1.08);
+    -webkit-transform: scale(1.08);
+    transform: scale(1.08);
+}
+.btn-info:hover .icon-wrap > i {
+	color: #cf343b;
+}
+
+
+/*--------------------------------------------------*/
+/*   SCENES
+/*--------------------------------------------------*/
 .scene {
 	height: 100%;
 	width: 100%;
@@ -224,7 +275,7 @@ body {
 }
 .founder-info span:nth-child(3) {
 	font: 700 34px "Oswald";
-	color: rgba(0,0,0,0.3);
+	color: rgba(0,0,0,0.5);
 	display: block;
 }
 .in-the-woods {
@@ -253,9 +304,9 @@ body {
 	z-index: 30;
 }
 .s2-story-wrap {
-	width: 39%;
+	width: 42%;
 	position: absolute;
-	top: 7%;
+	top: 4%;
 	left: 13%;
 	z-index: 10;
 }
@@ -278,7 +329,8 @@ body {
 	position: absolute;
 	top: 0;
 	right: 40px;
-	background-color: rgba(0,0,0,0.15);
+	background-color: rgba(200,200,200,.5);
+	z-index: 4;
 }
 .cutedge-right-angle {
 	width: 0;
@@ -288,13 +340,15 @@ body {
 	right: 0;
 	border-style: solid;
 	border-width: 40px 0 0 40px;
-	border-color: transparent transparent transparent rgba(0,0,0,0.15);
+	border-color: transparent transparent transparent rgba(200,200,200,.5);
 }
 .cutedge-body {
 	margin: 40px 0;
 	width: 100%;
-	background-color: rgba(0,0,0,0.15);
+	background-color: rgba(200,200,200,.5);
 	padding: 0 20px 0 25px;
+	position: relative;
+	z-index: 5;
 }
 .cutage-headline {
 	margin-top: 0;
@@ -313,7 +367,7 @@ body {
 	position: absolute;
 	bottom: 0;
 	left: 40px;
-	background-color: rgba(0,0,0,0.15);
+	background-color: rgba(200,200,200,.5);
 }
 .cutedge-left-angle {
 	width: 0;
@@ -323,7 +377,7 @@ body {
 	left: 0;
 	border-style: solid;
 	border-width: 0 40px 40px 0;
-	border-color: transparent rgba(0,0,0,0.15) transparent transparent ;
+	border-color: transparent rgba(200,200,200,.5) transparent transparent ;
 }
 
 /*
@@ -547,7 +601,7 @@ body {
 	width: 36%;
 	position: absolute;
 	left: 64%;
-	bottom: 20%;
+	bottom: 35%;
 	opacity: 0;
 }
 /*
@@ -758,6 +812,38 @@ body {
 
 .clearfix {
     *zoom: 1;
+}
+
+
+
+/*	MEDIA QUERIES
+/*-------------------------------------------*/
+
+@media screen and (max-width: 699px) {
+	
+	
+.scene {
+	height: 0;
+	padding-top: 133%;
+}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 /* ==========================================================================

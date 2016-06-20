@@ -9,13 +9,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
-
-       <!--  <script src="js/vendor/modernizr-2.6.2.min.js"></script> -->
        <!-- 		<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script> -->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
         <script src="js/vendor/TweenMax.min.js"></script>
@@ -28,13 +22,6 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 		<div class="container">
-			<script>
-				var controller;
-				$(document).ready(function($) {
-					// init controller
-					controller = new ScrollMagic();
-				});
-			</script>
 			<div class="s1 scene">
 				<img class="usa-flag" src="images/scene-1/usa-flag.png">
 				<img class="rem-logo" src="images/scene-1/Remington-Outdoor-Logo.png">
@@ -52,7 +39,6 @@
 			<div class="s2-back"></div>
 			
 			<div class="s2 scene">
-				
 				<div class="s2-content-wrap">
 					<div class="left-green-bar">
 						<img class="founder-photo" src="images/scene-2/Eliphalet_Remington.png">
@@ -60,6 +46,10 @@
 							<span>Eliphalet Remington II</span>
 							<span>Founder</span>
 							<span>1793-1861</span>
+						</div>
+						<div class="btn-info">
+							<span class="icon-wrap"><i class="icon-info"></i></span>
+							
 						</div>
 					</div>
 					<div>
@@ -73,9 +63,9 @@
 									<div class="cutedge-top"></div>
 									<div class="cutedge-body">
 										<dvi class="cutage-headline clearfix">
-											<h1>The Story Goes...</h1>
+											<h1>As the story goes,</h1>
 										</dvi>
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequa</p>
+										<p>Eliphalet Remington I would not purchase a rifle for his son Eliphalet II, so young Remington made his own barrel and took it to a local gunsmith for finishing. Soon he had the pleasure of securing the object of his desire in a complete state. The barrel was so complete a success as to extort the praise of the expert, and young Eliphalet was so encouraged that he followed up his first effort by others. Fame of the new fabrication beagan soon to fill the country side, and the young producer found the resources, and the old forge was taxed to the utmost.</p>
 									</div>
 									<div class="cutedge-left-angle"></div>
 									<div class="cutedge-bottom"></div>
@@ -85,6 +75,11 @@
 					</div>
 				</div><!-- .s2-content-wrap end -->
 				<div class="nextriger3"></div>
+				<div class="info-wrap">
+					<div class="info-center">
+						
+					</div>
+				</div>
 			</div><!-- .s2 end -->
 			
 			
@@ -95,7 +90,7 @@
 					<div class="s3-year"></div>
 					<div class="s3-info">
 						<div class="s3-info-inner">
-							<img class="s3-gun" src="images/scene-3/nylon77.png">
+							<img class="s3-gun" src="images/scene-3/nylon666.png">
 							
 							<h1 class="s3-h1">Nylon 66</h1>
 							<div class="bracket-box">
@@ -117,564 +112,7 @@
 					</div><!-- .s3-info end -->
 				</div><!-- .s3-inner end -->
 			</div><!-- .s3 end -->
-			<script>
-				$(document).ready(function($) {
-					var windowHeight = $(window).innerHeight();
-					var windowWidth = $(window).innerWidth();
-					var armyHight = $(".army").height();
-					var armyOffset = $(".army").offset().top;
-					var s2MarginTop = (armyOffset + armyHight ) - windowHeight;
-					$(window).on("resize", function () {
-						windowHeight = $(window).innerHeight();
-					});	
-					
-					console.log("margin top " + s2MarginTop);
-					console.log("army height " + armyHight);
-					
-					console.log("window hight " + windowHeight);
-					console.log("army offset " + armyOffset);
-					
-					
-					
-					
-					
-					
-					
-					// SCENE 1==========================================
-					
-					// Duration ignored / replaced by scene duration now
-					var tween1 = TweenMax.to('.army', 0.5, {
-					    opacity: 0
-					});
-					
-					var scene1 = new ScrollScene({
-					    triggerElement: '.s2',
-					    duration: windowHeight, /* How many pixels to scroll / animate */
-					    offset: s2MarginTop,
-					    triggerHook: "onEnter"
-					})
-					.setTween(tween1).addTo(controller);
-					
-					// Arrow Down ****
-					var tween1_2 = TweenMax.to('.arrow-down', 1, {
-					    scale: 2,
-						bottom: 37 - (s2MarginTop),
-					    ease: Linear.easeInOut
-					});
-					new ScrollScene({
-						triggerElement: ".s1",
-						triggerHook: "onLeave",
-						duration: s2MarginTop
-					})
-					.setTween(tween1_2).addTo(controller);
-					
-					// Arrow Down ****
-					var tween1_3 = TweenMax.to('.arrow-down', 1, {
-					    opacity: 0,
-					    ease: Linear.easeInOut
-					});
-					new ScrollScene({
-						triggerElement: ".s1",
-						triggerHook: "onLeave",
-						offset: s2MarginTop * 0.7,
-						duration: s2MarginTop
-					})
-					.setTween(tween1_3).addTo(controller);
-										
-					
-					// SCENE 2 ==========================================
-					
-					$(".s2-back").css("height", s2MarginTop);
-					
-					// build scene
-					new ScrollScene({
-						triggerElement: ".s2-back",
-						duration: windowHeight * 3.5,
-						offset: s2MarginTop,
-						triggerHook: "onLeave"
-					})
-					.setPin(".s2").addTo(controller);
-					
-					// Left Green Bar ****
-					var tween2_1 = TweenMax.from('.left-green-bar', 1, {
-					    opacity: 0.8,
-					    left: "-40%",
-					    ease: Linear.easeIn
-					});
-					new ScrollScene({
-						triggerElement: ".army",
-						offset: windowHeight * 1.8,
-						duration: windowHeight * 1.5,
-						triggerHook: "onEnter"
-					})
-					.setTween(tween2_1).addTo(controller);
-					
-					// In The Woods ****
-					var tween2_3 = TweenMax.from('.in-the-woods', 0.7, {
-					    opacity: 0,
-					    right: -50,
-					    ease: Linear.easeInOut,
-					    delay: 1
-					});
-					new ScrollScene({
-						triggerElement: ".army",
-						offset: windowHeight * 1.8,
-						duration: windowHeight * 1.5,
-						triggerHook: "onEnter"
-					})
-					.setTween(tween2_3).addTo(controller);
-					
-					// In The Woods Guy ****
-					var tween2_3_1 = TweenMax.from('.in-the-woods-guy', 0.7, {
-					    opacity: 0,
-					    right: "18%",
-					    ease: Linear.easeInOut,
-					    delay: 1
-					});
-					new ScrollScene({
-						triggerElement: ".army",
-						offset: windowHeight * 1.8,
-						duration: windowHeight * 1.5,
-						triggerHook: "onEnter"
-					})
-					.setTween(tween2_3_1).addTo(controller);
-					
-					// In The Woods Guy 2 ****
-					var tween2_3_2 = TweenMax.to('.in-the-woods-guy', 1, {
-					    opacity: 0.4,
-					    right: "-13%",
-					    bottom: "9%",
-					    scale: 0.5,
-					    ease: Linear.easeInOut,
-					});
-					new ScrollScene({
-						triggerElement: ".army",
-						offset: windowHeight * 4.2,
-						duration: windowHeight * 1.8,
-						triggerHook: "onEnter"
-					})
-					.setTween(tween2_3_2).addTo(controller);
-					
-					// Squirrel ****
-					var tween2_3_3 = TweenMax.to('.s2-squirrel', 1, {
-					    bottom: "100%",
-					    ease: Linear.easeInOut,
-					});
-					new ScrollScene({
-						triggerElement: ".army",
-						offset: windowHeight * 4.2,
-						duration: windowHeight * 0.6,
-						triggerHook: "onEnter"
-					})
-					.setTween(tween2_3_3).addTo(controller);
-					
-					// Story ****
-					var tween2_4 = TweenMax.from('.s2-story-wrap', 0.7, {
-					    opacity: 0,
-					    top: "13%",
-					    ease: Linear.easeIn,
-					    delay: 1.5
-					});
-					new ScrollScene({
-						triggerElement: ".army",
-						offset: windowHeight * 2.5,
-						duration: windowHeight * 1.5,
-						triggerHook: "onEnter"
-					})
-					.setTween(tween2_4).addTo(controller);
-					
-										
-					// SCENE 3 ============================================================================= 
-					
-					new ScrollScene({
-						triggerElement: ".nextriger3",
-						duration: windowHeight * 4,
- 						offset: 10,
-						triggerHook: "onLeave"
-					})
-					.setPin(".s3").addTo(controller);
-					
-					// .s3-inner ****
-					var tween3 = TweenMax.from('.s3-inner', 0.7, {
-					    opacity: 0,
-					    ease: Linear.easeInOut
-					});
-					new ScrollScene({
-						triggerElement: ".nextriger3",
-						offset: 10,
-						duration: windowHeight / 2,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween3).addTo(controller);
-					
-					// .s3-year ****
-					var tween3_1 = TweenMax.from('.s3-year', 1, {
-					    top: "-17%",
-					    scale: 0.4,
-					    ease: Linear.easeInOut
-					});
-					new ScrollScene({
-						triggerElement: ".nextriger3",
-						offset: windowHeight,
-						duration: windowHeight / 2,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween3_1).addTo(controller);
-					
-					// .s3-info ****
-					var tween3_1_1 = TweenMax.from('.s3-info', 1, {
-					    top: "40%",
-					    opacity: 0,
-					    ease: Linear.easeInOut
-					});
-					new ScrollScene({
-						triggerElement: ".nextriger3",
-						offset: windowHeight * 1.2,
-						duration: windowHeight / 3,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween3_1_1).addTo(controller);
-					
-					// .s3-gun ****
-					var tween3_2 = TweenMax.from('.s3-gun', 1, {
-					    top: "150%",
-					    scale: 2,
-					    ease: Linear.easeInOut
-					});
-					new ScrollScene({
-						triggerElement: ".nextriger3",
-						offset: windowHeight * 1.5,
-						duration: windowHeight / 2,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween3_2).addTo(controller);
-					
-					// .s3-h1 ****
-					var tween3_3 = TweenMax.from('.s3-h1', 1, {
-					    right: "58%",
-					    opacity: 0,
-					    ease: Linear.easeInOut
-					});
-					new ScrollScene({
-						triggerElement: ".nextriger3",
-						offset: windowHeight * 2,
-						duration: windowHeight / 2,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween3_3).addTo(controller);
-					
-					// .bracket-box ****
-					var tween3_4 = TweenMax.from('.bracket-box', 1, {
-					    left: "55%",
-					    opacity: 0,
-					    ease: Linear.easeInOut
-					});
-					new ScrollScene({
-						triggerElement: ".nextriger3",
-						offset: windowHeight * 2,
-						duration: windowHeight,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween3_4).addTo(controller);
-					
-					// .bracket-left ****
-					var tween3_5 = TweenMax.from('.bracket-left', 1, {
-					    rotation: 360,
-					    opacity: 0,
-					    scale: 2,
-					    ease: Linear.easeInOut
-					});
-					new ScrollScene({
-						triggerElement: ".nextriger3",
-						offset: windowHeight * 2,
-						duration: windowHeight,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween3_5).addTo(controller);
-					
-					// bracket-right ****
-					var tween3_5 = TweenMax.from('.bracket-right', 1, {
-					    rotation: "-360",
-					    opacity: 0,
-					    scale: 2,
-					    ease: Linear.easeInOut
-					});
-					new ScrollScene({
-						triggerElement: ".nextriger3",
-						offset: windowHeight * 2,
-						duration: windowHeight,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween3_5).addTo(controller);
-					
-					// .s3-year END ****
-					var tween3_6 = TweenMax.to('.s3-year', 1, {
-					    top: "8%",
-					    opacity: 0,
-					    ease: Linear.easeInOut
-					});
-					new ScrollScene({
-						triggerElement: ".nextriger3",
-						offset: windowHeight * 3.5,
-						duration: windowHeight / 2,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween3_6).addTo(controller);
-					
-					// .s3-info END ****
-					var tween3_7 = TweenMax.to('.s3-info', 1, {
-					    top: "41%",
-					    opacity: 0,
-					    ease: Linear.easeInOut
-					});
-					new ScrollScene({
-						triggerElement: ".nextriger3",
-						offset: windowHeight * 3.5,
-						duration: windowHeight / 2,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween3_7).addTo(controller);
-					
-					
-					// .s3-inner END ****
-					var tween3_8 = TweenMax.to('.s3-inner', 0.1, {
-					    backgroundAttachment: "scroll",
-					    ease: Linear.easeInOut
-					});
-					new ScrollScene({
-						triggerElement: ".nextriger3",
- 						offset: (windowHeight * 4) + 10,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween3_8).addTo(controller);
-				
-					
-					
-					// SCENE 4 ========================================== 
-					new ScrollScene({
-						triggerElement: ".nextriger4",
-						duration: windowHeight * 4,
- 						offset: 10,
-						triggerHook: "onLeave"
-					})
-					.setPin(".s4").addTo(controller);
-					
-					// .record-photo ****
-					var tween4 = TweenMax.from('.record-photo', 1, {
-					    top: "238%",
-					    rotation: "32",
-					    scale: 1.2,
-					    ease:Back.easeOut
-					});
-					new ScrollScene({
-						triggerElement: ".nextriger4",
- 						offset: 150,
- 						duration: windowHeight * 1.5,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween4).addTo(controller);
-					
-					// .record-photo ****
-					var tween4_1 = TweenMax.from('.s4-info', 1, {
-					    right: "1%",
-					    opacity: 0,
-					    ease:Linear.easeInOut
-					});
-					new ScrollScene({
-						triggerElement: ".nextriger4",
- 						offset: windowHeight * 0.9,
- 						duration: windowHeight * 0.9,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween4_1).addTo(controller);
-					
-					// .berry and .tom ****
-					var tween4_2 = TweenMax.staggerFrom('.s4-person', 1, {
-					    bottom: "-60%",
-					    ease:Back.easeOut
-					}, 0.25);
-					new ScrollScene({
-						triggerElement: ".nextriger4",
- 						offset: windowHeight,
- 						duration: windowHeight * 0.9,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween4_2).addTo(controller);
-					
-					var tween4_2 = TweenMax.from('.b-eye', 1, {
-					    opacity: 0,
-					    ease:Linear.easeOut
-					}, 0.25);
-					new ScrollScene({
-						triggerElement: ".nextriger4",
- 						offset: windowHeight,
- 						duration: windowHeight * 0.9,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween4_2).addTo(controller);
-							
-															
-					var bEye = $(".b-eye"),
-						bArm = $(".b-arm"),
-						bArmBottom = $(".b-arm-bottom"),
-						s4Block = $(".s4-block"),
-						s4Boom = $(".s4-boom"),
-						s4BoomBack = $(".s4-boom-back");
-						s4Gun = $(".s4-gun");
-						
-					function blockPerish() {
-						s4Block.css("display", "none");
-						$(".test2").css("background-color", "red");
-					}
-					function blockAppear() {
-						s4Block.css("display", "block");
-					}
-					
-				    tlEyes = new TimelineMax({repeat: -1, repeatDelay: 2 });
-				    tlEyes.to(bEye, 0.2, {display: "none"});
-				    
-				    tlArm = new TimelineMax({onComplete: blockPerish, onStart: blockAppear,  repeat: -1, repeatDelay: 1, yoyo:false, delay: 1 });
-				    tlArm.from(bArm, 0.7, {rotation: 20, transformOrigin: "left top", ease:Back.easeInOut })
-				    	.from(bArmBottom, 0.5, {rotation: 30, transformOrigin: "10% 95%", ease:Back.easeIn }, 0)
-				    	.to(s4Gun, 0.1, {x:15, y:15}, 1.05)
-				    	.to(s4Gun, 0.1, {x:0, y:0}, 1.15)
-				    	.to(s4Block, 0.1, {opacity: 1}, 0)
-				    	.to(s4Block, 0.5, {bottom: "100%", rotation: 70, scale: 1.1, ease:Back.easeIn}, 0)
-				    	.to(s4Block, 0.7, {bottom: "180%", rotation: 170, scale: 1.4, ease:Back.easeOut}, 0.5)
-				    	.to(s4Boom, 0.2, {opacity: 0.3, scale: 1.8, marginLeft: "-2%", ease:Back.easeOut}, 1.15)
-				    	.to(s4Boom, 0.1, {opacity: 0, marginLeft: "-2%", ease:Expo.easeOut}, 1.35)
-				    	.to(s4Block, 1.2, {bottom: "207%", left: "-200%", opacity: 0, scale: 1.2, rotation: 1000}, 1.2)
-						.pause();
-						
-					function shootAnim(e) {
-						if (e.type == "enter") {
-							//$(".test2").css("display", "block").text("visible.");
-							
-							tlEyes.play();
-							tlArm.play();
-						} else {
-							//$(".test2").css("display", "none").text("invisible.");
-							tlEyes.pause();
-							tlArm.restart();
-							tlArm.pause();
-						}
-					}
-					
-					new ScrollScene({
-						triggerElement: ".nextriger4", 
-						offset: windowHeight * 1.9,
- 						duration: windowHeight * 2.5,
-						triggerHook: "onLeave"
-					})
-					.addTo(controller)
-					.on("enter leave", shootAnim);
-						
-						
-						
-					// Timeline ==========================================
-					
-					var time_dark = $("#timeline"),
-						time_point = $(".time-point"),
-						time_year = $(".time-year"),
-						time_path = $(".time-path"),
-						time_arrow = $("#time-arrow");
-						
-					// s2
-					
-					// s3
-					var tween_time_1 = TweenMax.staggerTo(time_point, 1, {
-					    fill: "#1E3F14",
- 					    stroke:"white"
-					}, -0.2);  // negative value is making animation from the last element
-					new ScrollScene({
-						triggerElement: ".s3",
- 						duration: windowHeight,
-						triggerHook: "onEnter"
-					})
-					.setTween(tween_time_1).addTo(controller);
-						
-					var tween_time_1_1 = TweenMax.staggerFromTo(time_year, 1, {fill: "black"},{fill: "white"}, -0.2);
-					new ScrollScene({
-						triggerElement: ".s3",
- 						duration: windowHeight,
-						triggerHook: "onEnter"
-					})
-					.setTween(tween_time_1_1).addTo(controller);
-					
-					var tween_time_1_2 = TweenMax.staggerTo(time_path, 1, {
-					    stroke: "#cccccc"
-					}, -0.2);
-					new ScrollScene({
-						triggerElement: ".s3",
-						offset: windowHeight * 0.2,
- 						duration: windowHeight,
-						triggerHook: "onEnter"
-					})
-					.setTween(tween_time_1_2).addTo(controller);
-					
-					var tween_time_1_3 = TweenMax.to(time_arrow, 1, {
-					    fill: "white"
-					});
-					new ScrollScene({
-						triggerElement: ".s3",
-						offset: windowHeight * 0.5,
- 						duration: windowHeight * 0.5,
-						triggerHook: "onEnter"
-					})
-					.setTween(tween_time_1_3).addTo(controller);
 
-					// 1816
-					var t1816 = $(".t1816"),
-						c1816 = $(".c1816");
-					function y1816(e) {
-						if (e.type == "enter") {
-							t1816.css({"fill": "#AF4159", "font-size": 12, "font-weight": 700});
-							c1816.css({"stroke-width": 1.75}).attr("r", "3.5");
-						} else {
-							t1816.css({"fill": "black", "font-size": 8, "font-weight": 400});
-							c1816.css({"stroke-width": 1.3333}).attr("r", "2");
-						}
-					}
-					var tween_arrow_2 = TweenMax.to(time_arrow, 1, {y: 20});
-					var scene1816 = new ScrollScene({
-						triggerElement: ".s2-back",
-						duration: windowHeight * 4.5,
-						offset: s2MarginTop / 2,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween_arrow_2)
-					.addTo(controller)
-					.on("enter leave", y1816);
-
-					// 1859
-					var t1959 = $(".t1959"),
-						c1959 = $(".c1959");
-					function y1959(e) {
-						if (e.type == "enter") {							
-							t1959.css({"fill": "#AF4159", "font-size": 12, "font-weight": 700});
-							c1959.css({"stroke-width": 1.75}).attr("r", "3.5");
-						}  if (e.type == "leave" || e.scrollDirection == "reverse"){
-							t1959.css({"fill": "black", "font-size": 8, "font-weight": 400});
-							c1959.css({"stroke-width": 1.3333}).attr("r", "2");
-						}  if (e.type == "leave" || e.scrollDirection == "forward"){
-							t1959.css({"fill": "white", "font-size": 8, "font-weight": 400});
-							c1959.css({"stroke-width": 1.3333}).attr("r", "2");
-						}
-					}
-					var tween_arrow_3 = TweenMax.to(time_arrow, 1, {y: 40});
-					var scene1959 = new ScrollScene({
-						triggerElement: ".nextriger3",
-						duration: windowHeight * 9,
- 						offset: 0,
-						triggerHook: "onLeave"
-					})
-					.setTween(tween_arrow_3)
-					.addTo(controller)
-					.on("enter leave", y1959);					
-					
-					
-				});
-			</script>
 			<div class="s4 scene">
 				<img class="record-photo" src="images/scene-4/record-photo.jpg">
 				<div class="s4-info">
